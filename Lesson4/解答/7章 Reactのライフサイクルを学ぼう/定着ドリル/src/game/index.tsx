@@ -6,7 +6,7 @@ interface Props {
 
 interface State {
   click_count : number
-  sum : number
+  point : number
 }
 
 export default class Index extends React.Component <Props, State>{
@@ -14,21 +14,21 @@ export default class Index extends React.Component <Props, State>{
     super(props);
     this.state = {
       click_count: 0,
-      sum: 0
+      point: 0
     };
   }
 
   componentDidUpdate(prevProps: Props, prevState: State) {
     if (prevState.click_count !== this.state.click_count) {
-      if (this.state.click_count > this.state.sum){
-        alert("注意:得点が回数を下回っています");
+      if (this.state.point < 0){
+        alert("注意:得点がマイナスです");
       }
     }
   }
 
   handleOnClick = (): void => {
     this.setState({ click_count: this.state.click_count + 1 })
-    this.setState({ sum: this.state.sum + Math.floor(Math.random() * 4 - 1) })
+    this.setState({ point: Math.floor(Math.random() * 4 - 1) })
   };
 
   render() {
@@ -40,7 +40,7 @@ export default class Index extends React.Component <Props, State>{
         alignItems: "center",
       }}>
         <div>ボタンを押した回数:{this.state.click_count}</div>
-        <div>得点:{this.state.sum}</div>
+        <div>得点:{this.state.point}</div>
         <button style={{
           height: buttom_size,
           width: buttom_size,
@@ -48,7 +48,7 @@ export default class Index extends React.Component <Props, State>{
         onClick={() => {
             this.handleOnClick()
         }}>
-          ボタンを押すとランダムに得点が増減します
+          ボタンを押すとランダムな得点が表示されます
         </button>
       </div>
     );
