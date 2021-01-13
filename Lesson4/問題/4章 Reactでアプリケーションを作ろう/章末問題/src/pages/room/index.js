@@ -20,7 +20,11 @@ export default class Index extends React.Component{
 
  render() {
    return (
-     <div>
+     <div  style={{
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      }}>
        <h1>TechRoom</h1> 
        <h2>RoomA</h2>
        <div>

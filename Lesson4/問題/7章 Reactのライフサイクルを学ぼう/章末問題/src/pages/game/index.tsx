@@ -3,11 +3,8 @@ import { Link } from "react-router-dom";
 
 interface Props {}
 interface State {
- selectCount: number;
- randomCount: number;
- battleCount: number;
- winCount:number;
- resultString: string;
+// stateの型定義をする。
+// [①]
 }
 export default class Index extends React.Component<Props, State> {
 constructor(props: Props) {
@@ -21,29 +18,34 @@ constructor(props: Props) {
  };
 }
 
-componentDidMount() {
- alert("番号当てゲームです。\n ページが遷移したら、好きな番号を選んでください。");
-}
+// 番号当てゲーム開始のリンクを踏んだら、「番号当てゲームです。ページが遷移したら、好きな番号を選んでください。」と表示させる。
+//  [②]{
+//    alert("番号当てゲームです。\n ページが遷移したら、好きな番号を選んでください。");
+//  }
 
 handleOnClick = (val: number): void => {
  this.setState({ battleCount: this.state.battleCount + 1 });
  this.setState({ selectCount: val });
 };
 
-componentWillUnmount() {
- alert(
-   `【戦績】\n${this.state.battleCount}戦中、${this.state.winCount}勝でした。`
- );
-}
+// トップページへ戻るのリンクを踏むと、戦績が出るようにする。
+//   [③] {
+//    alert(
+//      `【戦績】\n${[④]}戦中、${[⑤]}勝でした。`
+//    );
+//  }
 
-componentDidUpdate(prevProps: Props, prevState: State) {
-if (prevState.battleCount !== this.state.battleCount) {
-  const randomCount: number = Math.floor(Math.random() * 2);
-  this.setState({ randomCount: randomCount });
-  this.confirmResult(this.state.selectCount,randomCount);
-}
-}
+// 番号をクリックすると相手の番号がランダムで選択されるような仕様にする。
+// [⑥](prevProps: Props, prevState: State) {
+//  if (prevState.battleCount !== this.state.battleCount) {
+//    const randomCount: number = Math.floor(Math.random() * 2);
+//    this.setState({ randomCount: randomCount });
+//    this.confirmResult(this.state.selectCount,randomCount);
+//  }
+// }
 
+// 番号が一致した場合は「あたり！」が、
+// 一致しなかった場合は「はずれ！」と表示される。
 confirmResult(selectCount: number, randomCount: number): void {
 if (selectCount === randomCount) {
   return this.setState({

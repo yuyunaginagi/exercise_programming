@@ -8,7 +8,7 @@ export default class Index extends React.Component {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-     }}>
+       }}>
         <h1>TechPlay</h1>     
         <Link to="/game">
           <h3>番号当てゲーム開始</h3>
