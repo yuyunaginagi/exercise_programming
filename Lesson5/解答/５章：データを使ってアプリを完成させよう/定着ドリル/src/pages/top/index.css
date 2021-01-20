@@ -1,0 +1,15 @@
+.main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-button{
+  width: 200px;
+  height: 200px;
+}
+
+.genre-button{
+  width: 200px;
+  height: 200px;
+}
