@@ -1,0 +1,43 @@
+.main{
+  display: flex;
+  justify-content: center;
+}
+
+.genres{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: gray;
+  width: 200px;
+  border: 1px solid;
+}
+
+.tasks{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: gray;
+  width: 200px;
+  height: 100vh;
+  border: 1px solid;
+}
+
+.genre{
+  border: 1px solid;
+  width: 200px;
+  height:30px;
+}
+
+.task{
+  border: 1px solid;
+  width: 200px;
+  height:30px;
+}
+
+.bar{
+  border: 1px solid;
+  display: flex;
+  background: white;
+  width:200px;
+  height:40px;
+}

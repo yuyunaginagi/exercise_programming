@@ -9,20 +9,22 @@ export default function Index () {
 
   const fetchGenres = async () => {
     const genres = await genreRequest("fetchGenres");
-    dispatch({ type: "genresUpdate", payload: { genre: genres } });
+    // 「useDataReducer」で管理している「genresData」を、取得した「genres」に更新する
   };
 
   const fetchTasks = async () => {
     const tasks = await taskRequest("fetchTasks");
-    dispatch({ type: "tasksUpdate", payload: { task: tasks } });
+    // 「useDataReducer」で管理している「tasksData」を、取得した「tasks」に更新する
   };
 
+  // reducerで管理しているジャンルが変化したらジャンルを表示
   useEffect(() => {
     console.log(data.genresData);
   }, [data.genresData]);
 
+  // reducerで管理しているタスクが変化したらタスクを表示
   useEffect(() => {
-    console.log(data.genres);
+    console.log(data.tasksData);
   }, [data.tasksData]);
 
   return (

@@ -1,29 +1,17 @@
-import React, {useEffect} from "react";
+import React from "react";
 import { genreRequest } from '../../requests/genreRequest'
 import { taskRequest } from '../../requests/taskRequest'
-import { useDataReducer } from '../../hooks/useDataReducer'
 import './index.css';
 
 export default function Index () {
-  const [data, dispatch] = useDataReducer();
 
   const fetchGenres = async () => {
-    const genres = await genreRequest("fetchGenres");
-    dispatch({ type: "genresUpdate", payload: { genre: genres } });
+    // genreRequestを用いて、取得したジャンルデータをコンソールにログを出力するように編集してください。
   };
 
   const fetchTasks = async () => {
-    const tasks = await taskRequest("fetchTasks");
-    dispatch({ type: "tasksUpdate", payload: { task: tasks } });
+    // taskRequestを用いて、取得したタスクデータをコンソールにログを出力するように編集してください。
   };
-
-  useEffect(() => {
-    console.log(data.genresData);
-  }, [data.genresData]);
-
-  useEffect(() => {
-    console.log(data.genres);
-  }, [data.tasksData]);
 
   return (
     <div className='main'>

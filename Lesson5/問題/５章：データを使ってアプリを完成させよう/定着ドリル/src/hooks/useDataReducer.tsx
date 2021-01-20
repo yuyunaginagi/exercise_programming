@@ -21,9 +21,9 @@ export const useDataReducer = (): any => {
   const reducer = (state: Data, action: dataAction) => {
     switch (action.type) {
       case "tasksUpdate":
-        return { ...state, tasksData: action.payload.task || state.tasksData };
+        return { ...state } //reducerで管理している「tasksData」を「payload」で渡された値に更新
       case "genresUpdate":
-        return { ...state, genresData: action.payload.genre || state.genresData};
+        return { ...state } //reducerで管理している「genresData」を「payload」で渡された値に更新
     }
   };
 
