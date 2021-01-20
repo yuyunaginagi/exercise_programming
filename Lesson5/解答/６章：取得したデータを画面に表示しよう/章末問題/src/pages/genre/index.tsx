@@ -8,7 +8,7 @@ interface Proos
 export default function Index (props: Proos) {
   return (
     <div className='genre'>
-      { props.genre.id } { props.genre.name }
+    { props.genre.name }
     </div>
   )
 }

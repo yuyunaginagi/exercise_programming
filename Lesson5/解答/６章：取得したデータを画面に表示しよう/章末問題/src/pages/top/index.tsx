@@ -39,11 +39,12 @@ export default function Index () {
 
   return (
     <div className='main'>
-      <div className='genres'>
+      <div className='list'>
         <div className='bar'>
           <div><MenuIcon onClick={ handleOnClickGnereMenu}/></div>
           <div className='genre-bar'>ジャンル一覧</div>
         </div>
+        <div className='genres'>
         { isGenreListOpen && data.genresData.map((genre: GenreType) => 
           {
             return (
@@ -51,18 +52,20 @@ export default function Index () {
             )
           }
         )}
+        </div>
       </div>
-
-      <div className='tasks'>
+    <div className='list'>
         <div className='bar'>
           <MenuIcon onClick={ handleOnClickTaskMenu}/>
           <div>タスク一覧</div>
         </div>
+        <div className='tasks'>
         { isTaskListOpen && data.tasksData.map((task: TaskType) => {
           return (
             <Task task={task}/>
           )
         })}
+        </div>
       </div>
     </div>
   )

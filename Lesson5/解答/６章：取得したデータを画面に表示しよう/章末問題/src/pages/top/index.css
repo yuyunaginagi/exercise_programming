@@ -4,34 +4,33 @@
 }
 
 .genres{
+  margin-top: 3px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background: gray;
   width: 200px;
-  border: 1px solid;
 }
 
 .tasks{
+  margin-top: 3px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background: gray;
   width: 200px;
-  height: 100vh;
-  border: 1px solid;
 }
 
 .genre{
   border: 1px solid;
   width: 200px;
-  height:30px;
+  height: 28px;
 }
 
 .task{
   border: 1px solid;
   width: 200px;
-  height:30px;
+  height: 28px;
 }
 
 .bar{
