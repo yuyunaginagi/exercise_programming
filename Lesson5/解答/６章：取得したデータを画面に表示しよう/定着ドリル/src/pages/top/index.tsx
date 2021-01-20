@@ -4,6 +4,7 @@ import { taskRequest } from '../../requests/taskRequest'
 import { useDataReducer } from '../../hooks/useDataReducer'
 import { GenreType } from '../../interfaces/GenreType'
 import { TaskType } from '../../interfaces/TaskType'
+import { useFilterTasks } from "../../hooks/useFilterTasks";
 import Task from '../task'
 import Genre from '../genre'
 import MenuIcon from "@material-ui/icons/Menu";
@@ -13,6 +14,8 @@ export default function Index () {
   const [data, dispatch] = useDataReducer();
   const [isGenreListOpen, setIsGenreListOpen] = useState(true);
   const [isTaskListOpen, setIsTaskListOpen] = useState(true);
+  const [selectedGenreId, setSelectedGenreId] = useState(0);
+  const [filteredTasks, tasksDispatch] = useFilterTasks();
 
   const fetchGenres = async () => {
     const genres = await genreRequest("fetchGenres");
@@ -22,6 +25,7 @@ export default function Index () {
   const fetchTasks = async () => {
     const tasks = await taskRequest("fetchTasks");
     dispatch({ type: "tasksUpdate", payload: { task: tasks } });
+    tasksDispatch({ type: "filterTask", payload: { tasks: tasks, genre_id: selectedGenreId }})
   };
 
   const handleOnClickGnereMenu = () => {
@@ -32,10 +36,18 @@ export default function Index () {
     setIsTaskListOpen(!isTaskListOpen)
   };
 
+  const handleOnClickSelectedGenreId = (genre_id: number) => {
+    setSelectedGenreId(genre_id)
+  };
+
   useEffect(() => {
     fetchGenres()
     fetchTasks()
   }, []);
+
+  useEffect(() => {
+    tasksDispatch({ type: "filterTask", payload: { tasks: data.tasksData, genre_id: selectedGenreId }})
+  }, [selectedGenreId]);
 
   return (
     <div className='main'>
@@ -48,7 +60,7 @@ export default function Index () {
         { isGenreListOpen && data.genresData.map((genre: GenreType) => 
           {
             return (
-              <Genre genre={genre}/>
+              <Genre genre={genre} handleOnClickSelectedGenreId={handleOnClickSelectedGenreId}/>
             )
           }
         )}
@@ -60,9 +72,9 @@ export default function Index () {
           <div>タスク一覧</div>
         </div>
         <div className='tasks'>
-        { isTaskListOpen && data.tasksData.map((task: TaskType) => {
+        { isTaskListOpen && filteredTasks.map((task: TaskType) => {
           return (
-            <Task task={task}/>
+              <Task task={task}/>
           )
         })}
         </div>

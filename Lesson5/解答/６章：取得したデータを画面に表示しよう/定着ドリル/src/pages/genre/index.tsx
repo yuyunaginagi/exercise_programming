@@ -4,12 +4,13 @@ import { GenreType } from '../../interfaces/GenreType'
 interface Proos
 {
   genre: GenreType
+  handleOnClickSelectedGenreId: (val: number) => void;
 }
 
 export default function Index (props: Proos) {
   return (
-    <div className='genre'>
+    <button className='genre' onClick={()=>props.handleOnClickSelectedGenreId(props.genre.id)}>
     { props.genre.name }
-    </div>
+    </button>
   )
 }

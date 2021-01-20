@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import { genreRequest } from '../../requests/genreRequest'
 import { taskRequest } from '../../requests/taskRequest'
 import { useDataReducer } from '../../hooks/useDataReducer'
@@ -11,8 +11,6 @@ import './index.css';
 
 export default function Index () {
   const [data, dispatch] = useDataReducer();
-  const [isGenreListOpen, setIsGenreListOpen] = useState(true);
-  const [isTaskListOpen, setIsTaskListOpen] = useState(true);
 
   const fetchGenres = async () => {
     const genres = await genreRequest("fetchGenres");
@@ -24,14 +22,6 @@ export default function Index () {
     dispatch({ type: "tasksUpdate", payload: { task: tasks } });
   };
 
-  const handleOnClickGnereMenu = () => {
-    setIsGenreListOpen(!isGenreListOpen)
-  };
-
-  const handleOnClickTaskMenu = () => {
-    setIsTaskListOpen(!isTaskListOpen)
-  };
-
   useEffect(() => {
     fetchGenres()
     fetchTasks()
@@ -41,29 +31,26 @@ export default function Index () {
     <div className='main'>
       <div className='list'>
         <div className='bar'>
-          <MenuIcon onClick={ handleOnClickGnereMenu}/>
+          <div><MenuIcon/></div>
+          {/* メニューアイコンをクリックするとジャンル一覧が開閉するようにする */}
           <div className='genre-bar'>ジャンル一覧</div>
         </div>
         <div className='genres'>
-        { isGenreListOpen && data.genresData.map((genre: GenreType) => 
-          {
-            return (
-              <Genre genre={genre}/>
-            )
-          }
+        { data.genresData.map((genre: GenreType) => 
+           {/*  Genreコンポーネントを使用し、ジャンル一覧を表示するようにする */}
         )}
         </div>
       </div>
-    <div className='list'>
+
+      <div className='list'>
         <div className='bar'>
-          <MenuIcon onClick={ handleOnClickTaskMenu}/>
+          <MenuIcon/>
+          {/* メニューアイコンをクリックするとタスク一覧が開閉するようにする */}
           <div>タスク一覧</div>
         </div>
         <div className='tasks'>
-        { isTaskListOpen && data.tasksData.map((task: TaskType) => {
-          return (
-            <Task task={task}/>
-          )
+        { data.tasksData.map((task: TaskType) => {
+          {/*  Taskコンポーネントを使用し、タスク一覧を表示するようにする */}
         })}
         </div>
       </div>
