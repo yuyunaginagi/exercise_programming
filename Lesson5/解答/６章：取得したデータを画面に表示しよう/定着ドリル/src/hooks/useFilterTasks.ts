@@ -11,14 +11,7 @@ export type filterAction = {
 
 export const useFilterTasks = (): any => {
   const initialData: TaskType[] = [
-    {
-      id: 0,
-      name: "",
-      explanation: "",
-      deadline_date: "",
-      status: 0,
-      genre_id: 0,
-    },
+    
   ];
 
   const reducer = (tasks: TaskType[], action: filterAction) => {

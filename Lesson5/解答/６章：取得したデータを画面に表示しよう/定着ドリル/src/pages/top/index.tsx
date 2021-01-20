@@ -25,7 +25,6 @@ export default function Index () {
   const fetchTasks = async () => {
     const tasks = await taskRequest("fetchTasks");
     dispatch({ type: "tasksUpdate", payload: { task: tasks } });
-    tasksDispatch({ type: "filterTask", payload: { tasks: tasks, genre_id: selectedGenreId }})
   };
 
   const handleOnClickGnereMenu = () => {
