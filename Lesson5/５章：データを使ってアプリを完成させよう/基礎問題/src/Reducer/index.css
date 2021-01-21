@@ -1,0 +1,16 @@
+.main{
+  display: flex;
+}
+
+.button{
+  width: 25vw;
+  height: 300px;
+  font-size: 25px;
+}
+
+.current-condition{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 40px;
+}
