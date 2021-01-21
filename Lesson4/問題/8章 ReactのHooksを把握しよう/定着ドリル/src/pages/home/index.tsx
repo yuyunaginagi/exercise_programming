@@ -6,15 +6,12 @@ export default class Index extends React.Component {
     return ( 
       <div
       style={{
-        padding: "1rem",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
       }}
       >
-        <h1
-        style={{
-          padding: "1rem",
-          backgroundColor: "#1e90ff",
-        }}
-        >TechPlay</h1>     
+        <h1>TechPlay</h1>     
         <Link to="/game">
           <h3>番号当てゲーム開始</h3>
         </Link>

@@ -18,13 +18,11 @@ export const useFilterTasks = (): any => {
     switch (action.type) {
       case "filterTask":
         const id: number = Number(action.payload.genre_id);
-        if (id === 0) {
-          return action.payload.tasks;
-        } else {
-          return action.payload.tasks.filter((task: TaskType) => {
-            return id === task.genre_id;
-          });
-        }
+        //ここ埋めさせる
+        return action.payload.tasks.filter((task: TaskType) => {
+          return id === task.genre_id;
+        });
+        //
     }
   };
 

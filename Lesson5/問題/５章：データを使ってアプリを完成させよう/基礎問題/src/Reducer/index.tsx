@@ -35,7 +35,11 @@ export default function Index () {
   const [condition, dispatch] = useReducer(reducer, initialData);
 
   return (
-    <div>
+    <div style={{
+      marginTop: "10px",
+      marginLeft: "10px",
+      marginRight: "10px"
+    }}>
       <div className='main'>
         <button onClick={【 ⑤ 】} className='button'>休養を取る</button>
         <button onClick={【 ⑥ 】} className='button'>シュート練習をする</button>

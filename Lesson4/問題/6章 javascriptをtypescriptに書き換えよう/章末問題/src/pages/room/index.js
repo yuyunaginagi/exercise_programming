@@ -20,7 +20,11 @@ import { RoomType } from "../../interfaces/roomtype";
   };
   render() {
     return (
-      <div>
+      <div style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}>
         <h1>TechRoom</h1>  
         <h2>RoomA</h2>
         <div>

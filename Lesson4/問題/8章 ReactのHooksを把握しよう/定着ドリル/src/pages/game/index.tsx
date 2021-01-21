@@ -57,7 +57,11 @@ const confirmResult = (selectCount: number, randomCount: number): void => {
 }
 
   return (
-    <div>
+    <div style={{
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+    }}>
       <h1>TechPlay</h1>
       <h2>番号当てゲーム</h2>
       <p>{resultString}</p>

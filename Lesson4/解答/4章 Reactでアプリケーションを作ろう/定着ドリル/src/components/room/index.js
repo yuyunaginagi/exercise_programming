@@ -21,8 +21,11 @@ export default class Index extends React.Component {
   render() {
     const button_size = 100
     return (
-      <div style = {{
-        display: "flex"
+      <div style={{
+        marginTop: "10px",
+        display: "flex",
+        justifyContent: 'center',
+        alignItems: "center",
       }}>
         {/* 1つ目のスイッチ */}
         <Switch
