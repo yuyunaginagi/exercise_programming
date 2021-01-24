@@ -6,11 +6,13 @@
 }
 
 .task-button{
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .5);
 }
 
 .genre-button{
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .5);
 }
