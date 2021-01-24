@@ -14,13 +14,18 @@ export default class Index extends React.Component {
       <div style={{
         marginTop: "10px",
         display: "flex",
-        justifyContent: 'center',
+        flexDirection: 'column',
         alignItems: "center",
       }}>
+        スイッチの状況
+        <div style={{
+        display: "flex",
+        }}>
         {/* 1つ目のスイッチ */}
         <button style={{
             height: button_size,
             width: button_size,
+            background: "#BBB9D5"
           }}onClick={() => {
             // スイッチのON, OFFを切り替える
           }}>
@@ -31,11 +36,13 @@ export default class Index extends React.Component {
         <button style={{
           height: button_size,
           width: button_size,
+          background: "#BBB9D5"
         }} onClick={() => {
           // スイッチのON, OFFを切り替える
         }}>
           OFF {/* 2つ目のスイッチの状態 */}
         </button>
+        </div>
       </div>
     );
   }
