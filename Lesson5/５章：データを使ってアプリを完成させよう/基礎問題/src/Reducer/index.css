@@ -1,14 +1,17 @@
 .main{
   display: flex;
+  justify-content: space-around;
 }
 
 .button{
-  width: 25vw;
+  width: 300px;
   height: 300px;
   font-size: 25px;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .5);
 }
 
 .current-condition{
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
