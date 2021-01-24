@@ -5,46 +5,46 @@ interface Props {
 }
 
 interface State {
-  click_count : number
-  point : number
+  debt: number
 }
 
 export default class Index extends React.Component <Props, State>{
   constructor(props: Props) {
     super(props);
     this.state = {
-      click_count: 0,
-      point: 0
+      debt: 0
     };
   }
 
-  handleOnClick = (): void => {
-    this.setState({ click_count: this.state.click_count + 1 })
-    this.setState({ point: Math.floor(Math.random() * 4 - 1) })
+  handleOnBuy = (): void => {
+    this.setState({ debt: this.state.debt + 10000})
   };
 
   render() {
-    const buttom_size = 200
+    const buttom_size = 100
     return (
       <div style={{
         display: "flex",
-        flexDirection: "column",
         alignItems: "center",
-      }}>
-        <div>ボタンを押した回数:{this.state.click_count}</div>
-        <div>得点:{this.state.point}</div>
+        flexDirection: "column",
+        marginTop: "5px"
+       }}>
+        <div>借入額:{this.state.debt}</div>
+        <div style={{
+        display: "flex",
+        alignItems: "center",
+       }}>
         <button style={{
           height: buttom_size,
           width: buttom_size,
         }}
         onClick={() => {
-            this.handleOnClick()
+            this.handleOnBuy()
         }}>
-          ボタンを押すとランダムな得点が表示されます
+          お金を借りる
         </button>
+        </div>
       </div>
     );
   }
 }
-
-
