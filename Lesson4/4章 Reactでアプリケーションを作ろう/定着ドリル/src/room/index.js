@@ -1,4 +1,5 @@
 import React from "react";
+import { RoomType } from "../../interfaces/roomtype"
 
 export default class Index extends React.Component {
   constructor(props) {
@@ -26,6 +27,7 @@ export default class Index extends React.Component {
             height: button_size,
             width: button_size,
             background: "#BBB9D5"
+            // 色を各ボタンの状況に応じて変更する
           }}onClick={() => {
             // スイッチのON, OFFを切り替える
           }}>
@@ -37,6 +39,7 @@ export default class Index extends React.Component {
           height: button_size,
           width: button_size,
           background: "#BBB9D5"
+          // 色を各ボタンの状況に応じて変更する
         }} onClick={() => {
           // スイッチのON, OFFを切り替える
         }}>
