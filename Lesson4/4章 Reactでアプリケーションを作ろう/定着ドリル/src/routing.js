@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
-import Room from "./room";
+import Room from "./components/room";
 
 export default class Routing extends React.Component {
   render() {
