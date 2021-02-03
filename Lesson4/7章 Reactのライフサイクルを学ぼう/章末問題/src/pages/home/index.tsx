@@ -8,10 +8,10 @@ export default class Index extends React.Component {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-       }}>
-        <h1>TechPlay</h1>     
-        <Link to="/game">
-          <h3>番号当てゲーム開始</h3>
+      }}>
+        <h1>TechProduct</h1>     
+        <Link to="/buy">
+          <h3>購入ページへ</h3>
         </Link>
       </div>
     );
